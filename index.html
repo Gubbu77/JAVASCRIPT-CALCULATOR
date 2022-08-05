@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form name="calcuform">
+        <input id="result" name="textview"  >
+    </form>
+        <table>
+            
+            <tr>
+
+            <td><button id="add"  onclick="insert('+')">+</button></td>
+            <td><button id="add" onclick="insert('-')">-</button></td>
+            <td><button id="add" onclick="insert('/')">/</button></td>
+            <td><button id="add" onclick="insert('*')">*</button></td>
+            <td><button id="add" onclick="insert('%')">%</button></td>
+            
+            </tr>
+
+            <tr>
+                <td><button id="add" onclick="insert('.')">.</button></td>
+                <td><button id="add"  onclick="insert('1')">1</button></td>
+                <td><button id="add" onclick="insert('2')">2</button></td>
+                <td><button id="add" onclick="insert('3')">3</button></td>
+                <td><button id="add" onclick="insert('4')">4</button></td>
+                
+                
+            </tr>
+
+            <tr>
+                <td><button id="add" onclick="insert('5')">5</button></td>
+                <td><button id="add" onclick="insert('6')">6</button></td>
+                <td><button id="add"  onclick="insert('7')">7</button></td>
+                <td><button id="add" onclick="insert('8')">8</button></td>
+                <td><button id="add" onclick="insert('9')">9</button></td>
+               
+                
+            </tr>
+
+            <tr>
+                <td><button id="add" onclick="insert('0')">0</button></td>
+                <td><button id="add" onclick="backspace()"><</button></td>
+                <td><button id="add" onclick="clearall()">c</button></td>
+                <td  colspan="2"><button style="background-color: cyan; border: none; width: 86px; height: 40px;" onclick="equal()">=</button></td>
+            </tr>
+            
+            
+        </table>
+
+        <style>
+            #add{
+                
+                padding:10px;
+                width: 40px;
+                font-size: 16px;
+            }
+
+            #result{
+                font-size: 16px;
+                text-align: center;
+                width: 210px;
+                height: 50px;
+            }
+        </style>
+
+
+        <script>
+        
+            
+            let result = document.querySelector('#result');
+            let maxlength = 6;
+            let inlength = result.value.length;
+            if(inlength > maxlength){
+                console.log(inlength);
+            }
+            
+            
+             
+            function insert(num){
+                
+                document.calcuform.textview.value  =  document.calcuform.textview.value + num;
+            }
+
+            function equal(){
+                
+                let exp = document.calcuform.textview.value;
+                
+                document.calcuform.textview.value = eval(exp);
+            }
+
+            function clearall(){
+                let exp = "";
+                document.calcuform.textview.value  = exp;
+
+            }
+
+            function backspace(){
+                let exp = document.calcuform.textview.value;
+                document.calcuform.textview.value = exp.substring(0, exp.length -1);
+            }
+        </script>
+   
+    
+</body>
+</html>
